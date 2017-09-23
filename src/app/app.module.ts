@@ -11,13 +11,19 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { MediaObject, Media } from '@ionic-native/media';
+import { File } from '@ionic-native/file';
+import { AudioRecorder } from '../services/audiorecorder';
+import { TimerComponent } from '../services/timer';
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    TimerComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    AudioRecorder,
+    Media,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

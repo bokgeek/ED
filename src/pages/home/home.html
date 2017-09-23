@@ -4,14 +4,45 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
-</ion-content>
+<ion-header>
+  <ion-navbar>
+    <button ion-button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Audio Recorder</ion-title>
+  </ion-navbar>
+ </ion-header>
+
+ <ion-content padding>
+         <div>
+             <b>Simple Interface for Audio Recorder</b>
+         </div>
+         <button ion-button class="buttton-start-recording" ion-button (click)="startRecording()">
+            <ion-icon name="microphone"></ion-icon>
+           Start recording
+         </button>
+         <button ion-button class="buttton-stop-recording" ion-button (click)="stopRecording()">
+            <ion-icon name="mic-off"></ion-icon>
+           Stop recording
+         </button>
+
+         <div *ngIf = "recorded">
+             <button ion-button ion-button (click)="startPlayback()">
+                <ion-icon name="play"></ion-icon>
+               Start playback
+             </button>
+             <button ion-button ion-button (click)="stopPlayback()">
+                <ion-icon name="square"></ion-icon>
+               Stop playback
+             </button>
+         </div>
+         <timer #timer timeInSeconds="10"></timer>
+         <button [disabled]="timer && !timer.hasFinished()" (click)="stopPlayback()">
+            Stop
+          </button>
+         <div *ngIf ="recordings.length > 0" >
+          <ion-item *ngFor = "let item of recordings">
+              {{item}}
+          </ion-item>
+         </div>
+ </ion-content>
