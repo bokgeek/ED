@@ -87,4 +87,7 @@
     <plugin name="cordova-plugin-media" spec="~3.0.1" />
     <plugin name="cordova-plugin-nativeaudio" spec="~3.0.9" />
     <plugin name="com-badrit-base64" spec="~0.2.0" />
+    <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAAZP621lCIhxlcf0AUNyp-rovshNr16-E" />
+    </plugin>
 </widget>

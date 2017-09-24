@@ -13,6 +13,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MediaObject, Media } from '@ionic-native/media';
 import { File } from '@ionic-native/file';
+import { GoogleMap, GoogleMapsEvent, GoogleMaps,  GoogleMapOptions,
+  CameraPosition,
+  MarkerOptions,
+  Marker } from '@ionic-native/google-maps';
 import { Base64 } from '@ionic-native/base64';
 import { AudioRecorder } from '../services/audiorecorder';
 import { TimerComponent } from '../services/timer';
@@ -45,6 +49,7 @@ import { TimerComponent } from '../services/timer';
     Media,
     File,
     Base64,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
