@@ -5,7 +5,6 @@ import { Media, MediaObject } from '@ionic-native/media';
 import { File } from '@ionic-native/file';
 
 import { AudioRecorder, AudioRecorderState } from '../../services/audiorecorder';
-
 import { TimerComponent } from '../../services/timer';
 
 
@@ -21,6 +20,7 @@ export class HomePage {
   radio = this.media.create('EmergenciaAudio_' + Date.now() + '.mp3');
   AudioRecorderState = AudioRecorderState;
   recordings: string [] = [];
+  fileName: string;
 
 
   recorded: boolean;
@@ -50,7 +50,7 @@ export class HomePage {
     this.recorded = false;
 
     try {
-      this.audioRecorder.startRecording();
+      this.fileName = this.audioRecorder.startRecording();
     }
     catch (e) {
       this.showAlert('Could not start recording.' + e);
@@ -64,7 +64,7 @@ export class HomePage {
 
     try {
       this.audioRecorder.stopRecording();
-      this.recordings.push('Record ' + this.recordings.length);
+      this.recordings.push(this.fileName); // 'Record ' + this.recordings.length);
     }
     catch (e) {
       this.showAlert('Could not stop recording.');
@@ -90,6 +90,20 @@ export class HomePage {
     catch (e) {
       this.showAlert('Could not stop playing recording.');
     }
+  }
+
+  playFromList(item: string){
+    try {
+      let player: any;
+      let path = 'file:////sdcard/'
+      player = this.media.create(path + item);
+      player.play();
+      console.log("Playinng " + path + item);
+    }
+    catch (e) {
+      this.showAlert('Could not play recording. ' + e);
+    }
+
   }
 
   showAlert(message) {

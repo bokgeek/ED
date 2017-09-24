@@ -41,8 +41,10 @@
             Stop
           </button>
          <div *ngIf ="recordings.length > 0" >
-          <ion-item *ngFor = "let item of recordings">
+          <!-- <ion-item *ngFor = "let item of recordings" (click)='playFromList($event)'> -->
+            <button ion-item *ngFor = "let item of recordings" (click)='playFromList(item)'>
               {{item}}
-          </ion-item>
+            </button>
+          <!-- </ion-item> -->
          </div>
  </ion-content>

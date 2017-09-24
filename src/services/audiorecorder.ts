@@ -31,7 +31,7 @@ export class AudioRecorder {
     return this.media;
   }
 
-  startRecording() {
+  startRecording(): string {
     if (this.radio !== null) {
       this.radio.release();
     }
@@ -40,6 +40,8 @@ export class AudioRecorder {
     this.radio.startRecord();
     console.log("GRABANDO servicio");
     this.state = AudioRecorderState.Recording;
+
+    return this.newFileName;
   }
 
   stopRecording() {
