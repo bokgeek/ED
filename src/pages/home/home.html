@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Audio</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -35,6 +35,10 @@
                 <ion-icon name="square"></ion-icon>
                Stop playback
              </button>
+             <button ion-button ion-button (click)="encodeB64()">
+              <ion-icon name="share"></ion-icon>
+             Encode B64
+           </button>
          </div>
          <timer #timer timeInSeconds="10"></timer>
          <button [disabled]="timer && !timer.hasFinished()" (click)="stopPlayback()">

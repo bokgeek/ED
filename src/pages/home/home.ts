@@ -3,6 +3,7 @@ import { NavController, AlertController, Platform } from 'ionic-angular';
 
 import { Media, MediaObject } from '@ionic-native/media';
 import { File } from '@ionic-native/file';
+import { Base64 } from '@ionic-native/base64';
 
 import { AudioRecorder, AudioRecorderState } from '../../services/audiorecorder';
 import { TimerComponent } from '../../services/timer';
@@ -34,11 +35,15 @@ export class HomePage {
   }
 
   constructor(public navCtrl: NavController,
-    public alertCtrl: AlertController,
-    public platform: Platform,
-    file: File, private media: Media,
-    public audioRecorder: AudioRecorder) {
-    this.recorded = false;
+              public alertCtrl: AlertController,
+              public platform: Platform,
+              file: File, private media: Media,
+              public audioRecorder: AudioRecorder,
+              private base64: Base64)
+  {
+
+      this.recorded = false;
+
   }
 
   startRecording() {
@@ -113,5 +118,17 @@ export class HomePage {
       buttons: ['OK']
     });
     alert.present();
+  }
+
+  encodeB64() {
+    let filePath: string = 'file:////sdcard/';
+    let file: string;
+
+    file = filePath + this.fileName;
+    this.base64.encodeFile(file).then((base64File: string) => {
+      console.log(base64File);
+    }, (err) => {
+      console.log(err);
+    });
   }
 }
