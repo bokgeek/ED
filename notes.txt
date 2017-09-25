@@ -18,7 +18,7 @@ npm install --save @ionic-native/media@3.4.4
 Supuestamente el native audio no hace falta
 ionic cordova plugin add cordova-plugin-nativeaudio
 npm install --save @ionic-native/native-audio
-npm uninstall --save cordova-plugin-nativeaudio 
+npm uninstall --save cordova-plugin-nativeaudio
 npm uninstall --save @ionic-native/native-audio
 cordova plugin remove @ionic-native/native-audio
 
@@ -28,7 +28,5 @@ npm install --save @ionic-native/base64
 
 firebase bok.geek@gmail.com firebase
 
-googlemaps api key AIzaSyAAZP621lCIhxlcf0AUNyp-rovshNr16-E ciberb
-ionic cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="AIzaSyAAZP621lCIhxlcf0AUNyp-rovshNr16-E" 
-ionic cordova plugin add https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps --variable API_KEY_FOR_ANDROID="AIzaSyAAZP621lCIhxlcf0AUNyp-rovshNr16-E"
-npm install --save @ionic-native/google-maps
+npm install --save @agm/core
+AIzaSyCdmwF04yUnRyzan2ixcnNrdQ39N7KDUzE
